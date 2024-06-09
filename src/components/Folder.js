@@ -17,7 +17,7 @@ function Folder() {
   useEffect(() => {
 
     // Fetch notes by folder ID
-    axios.get(`https://videonoting.netlify.app/notes/byid/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+    axios.get(`https://video-noting-web-app-80f672477ea7.herokuapp.com/notes/byid/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
         if(response.data.error) {
         
             // Log error if any
@@ -55,7 +55,7 @@ function Folder() {
     if(proceed) {
 
       // Send a DELETE request to delete the note by ID
-      axios.delete(`https://videonoting.netlify.app/notes/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+      axios.delete(`https://video-noting-web-app-80f672477ea7.herokuapp.com/notes/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
         console.log(response.data)
         // Filter out the deleted note from the state variable
         setNotes(notes.filter(note => note.id !== id))

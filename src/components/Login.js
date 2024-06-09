@@ -31,7 +31,7 @@ function Register() {
     setErrorMessage("")
 
     // Make a POST request to login the user
-    axios.post("https://videonoting.netlify.app/auth/login", data).then((response) => {
+    axios.post("https://video-noting-web-app-80f672477ea7.herokuapp.com/auth/login", data).then((response) => {
         if(response.data.error) {
             setAuthState({...authState, status: false})
             setErrorMessage(response.data.error)
@@ -52,7 +52,7 @@ function Register() {
             })
 
             // Fetch default query and search results
-            axios.get(`https://videonoting.netlify.app/auth/${response.data.id}/defaultQuery`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((queryResponse) => {
+            axios.get(`https://video-noting-web-app-80f672477ea7.herokuapp.com/auth/${response.data.id}/defaultQuery`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((queryResponse) => {
               const defaultQuery = queryResponse.data.defaultQuery
               console.log(defaultQuery)
               localStorage.setItem("defaultQuery", defaultQuery);

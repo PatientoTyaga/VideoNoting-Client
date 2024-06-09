@@ -35,7 +35,7 @@ function NavbarSearch() {
   const handleBatchSearch = (userQueries, accessToken) => {
 
     if(userQueries.length > 0) {
-      axios.post('https://videonoting.netlify.app/api/batch-search', { searchQueries: userQueries}, {headers: {accessToken: accessToken}}).then((response) => {
+      axios.post('https://video-noting-web-app-80f672477ea7.herokuapp.com/api/batch-search', { searchQueries: userQueries}, {headers: {accessToken: accessToken}}).then((response) => {
         
         if(response.data.error) {
           return alert(response.data.error)
@@ -68,7 +68,7 @@ function NavbarSearch() {
     const accessToken = localStorage.getItem('accessToken')
     
     // Get the current user information
-    axios.get("https://videonoting.netlify.app/auth/currentUser", {headers: {accessToken: accessToken}})
+    axios.get("https://video-noting-web-app-80f672477ea7.herokuapp.com/auth/currentUser", {headers: {accessToken: accessToken}})
     .then((response) => {
 
       if(response.data.error) {
