@@ -14,7 +14,7 @@ function Folders() {
   useEffect(() => {
 
     // Fetch folders data from the server
-    axios.get("http://videonoting.netlify.app/folders", {headers: {accessToken: localStorage.getItem('accessToken')}})
+    axios.get("https://videonoting.netlify.app/folders", {headers: {accessToken: localStorage.getItem('accessToken')}})
     .then((response) => {
         if(response.data.error) {
             // Alert error if any
@@ -40,7 +40,7 @@ function Folders() {
     if(proceed) {
       
       // Send a DELETE request to delete the folder by ID
-      axios.delete(`http://videonoting.netlify.app/folders/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}})
+      axios.delete(`https://videonoting.netlify.app/folders/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}})
       .then((response) => {
         console.log(response.data)
         // Filter out the deleted folder from the state variable

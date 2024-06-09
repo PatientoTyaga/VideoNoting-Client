@@ -19,12 +19,14 @@ useEffect(() => {
 
         // Fetch the video URL from the server
         try {
-            axios.get('https://videonoting.netlify.app/video-url').then((response) => {
+            axios.get('https://video-noting-web-app-80f672477ea7.herokuapp.com/video-url').then((response) => {
                 if(!response.data.error) {
                     setDemoVideoUrl(response.data)
                 }
             })
-            
+            .catch((error) => {
+                console.log("error getting video")
+            })
         } catch (error) {
             console.error('Error fetching video URL:', error)
         }
