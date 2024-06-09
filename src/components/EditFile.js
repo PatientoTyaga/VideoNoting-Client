@@ -17,7 +17,7 @@ function EditFile() {
     // useEffect hook to fetch note data when the component mounts
     useEffect(() => {
         // Fetch the note data using the 'id' from the URL
-        axios.get(`http://localhost:3001/notes/noteData/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+        axios.get(`https://videonoting.netlify.app/notes/noteData/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
             if(response.data.error) {
                 //log error if any
                 alert('Apologies! Unable to find file. Please try again later')
@@ -50,7 +50,7 @@ function EditFile() {
         const data = {title: title, content: content}
 
         // Send a PUT request to update the note data
-        axios.put(`http://localhost:3001/notes/${id}`, data, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+        axios.put(`https://videonoting.netlify.app/notes/${id}`, data, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
             if(response.data.error) {
 
                 // Log error if any

@@ -19,7 +19,7 @@ useEffect(() => {
 
         // Fetch the video URL from the server
         try {
-            axios.get('http://localhost:3001/video-url').then((response) => {
+            axios.get('https://videonoting.netlify.app/video-url').then((response) => {
                 if(!response.data.error) {
                     setDemoVideoUrl(response.data)
                 }

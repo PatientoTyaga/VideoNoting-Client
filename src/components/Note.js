@@ -15,7 +15,7 @@ function Note() {
 
   // useEffect hook to fetch video data when the component mounts
   useEffect(() => {
-    axios.get(`http://localhost:3001/videos/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+    axios.get(`https://videonoting.netlify.app/videos/${id}`, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
       if(response.data.error) {
 
         // Log error if any

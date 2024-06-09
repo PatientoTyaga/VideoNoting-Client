@@ -35,7 +35,7 @@ function NavbarSearch() {
   const handleBatchSearch = (userQueries, accessToken) => {
 
     if(userQueries.length > 0) {
-      axios.post('http://localhost:3001/api/batch-search', { searchQueries: userQueries}, {headers: {accessToken: accessToken}}).then((response) => {
+      axios.post('https://videonoting.netlify.app/api/batch-search', { searchQueries: userQueries}, {headers: {accessToken: accessToken}}).then((response) => {
         
         if(response.data.error) {
           return alert(response.data.error)
@@ -68,7 +68,7 @@ function NavbarSearch() {
     const accessToken = localStorage.getItem('accessToken')
     
     // Get the current user information
-    axios.get("http://localhost:3001/auth/currentUser", {headers: {accessToken: accessToken}})
+    axios.get("https://videonoting.netlify.app/auth/currentUser", {headers: {accessToken: accessToken}})
     .then((response) => {
 
       if(response.data.error) {

@@ -28,7 +28,7 @@ function Settings() {
     const proceed = window.confirm("Proceed with new username?")
 
     if(proceed) {
-        axios.put('http://localhost:3001/auth',{username: newUsername}, {headers: {accessToken: localStorage.getItem("accessToken")}})
+        axios.put('https://videonoting.netlify.app/auth',{username: newUsername}, {headers: {accessToken: localStorage.getItem("accessToken")}})
         .then((response) => {
             if(response.data.error) {
                 alert(response.data.error)
@@ -56,7 +56,7 @@ function Settings() {
     const proceed = window.confirm("Change password?")
 
     if(proceed) {
-      axios.post("http://localhost:3001/auth/update-password", {currentPassword: currentPassword, newPassword: newPassword}, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+      axios.post("https://videonoting.netlify.app/auth/update-password", {currentPassword: currentPassword, newPassword: newPassword}, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
         if(response.data.error) {
           alert(response.data.error)
         }else {
@@ -85,11 +85,11 @@ function Settings() {
 
       const accessToken = localStorage.getItem('accessToken')
 
-      axios.delete("http://localhost:3001/upload-image", { headers: { accessToken } })
+      axios.delete("https://videonoting.netlify.app/upload-image", { headers: { accessToken } })
       .then((response) => {
         if(!response.data.error) {
           console.log("no error")
-          axios.delete("http://localhost:3001/auth/delete-account", {headers: {accessToken: accessToken}})
+          axios.delete("https://videonoting.netlify.app/auth/delete-account", {headers: {accessToken: accessToken}})
           .then((response) => {
             if(response.data.error) {
               alert(response.data.error)
@@ -156,7 +156,7 @@ function Settings() {
 
     const upload = () => {
 
-      axios.post("http://localhost:3001/upload-image", formData, {headers: {accessToken: accessToken}}).then((response) => {
+      axios.post("https://videonoting.netlify.app/upload-image", formData, {headers: {accessToken: accessToken}}).then((response) => {
         alert('Image uploaded successfully!')
 
         fetchProfilePhoto(accessToken).then(({url, exists}) => {
@@ -174,7 +174,7 @@ function Settings() {
     if (profilePhotoExists) {
       const proceed = window.confirm("There's already an existing profile picture. Do you want to proceed and update it?");
       if (proceed) {
-        axios.delete("http://localhost:3001/upload-image", { headers: { accessToken } })
+        axios.delete("https://videonoting.netlify.app/upload-image", { headers: { accessToken } })
         .then(() => {
           upload()
         })
@@ -203,7 +203,7 @@ function Settings() {
         const proceed = window.confirm("Proceed with Deletion?");
 
         if(proceed) {
-          axios.delete("http://localhost:3001/upload-image", { headers: { accessToken } })
+          axios.delete("https://videonoting.netlify.app/upload-image", { headers: { accessToken } })
           .then((response) => {
           if (response.data.error) {
               alert(response.data.error)

@@ -18,7 +18,7 @@ function Register() {
 
   // Function to handle form submission
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/auth", data).then((response) => {
+    axios.post("https://videonoting.netlify.app/auth", data).then((response) => {
       if(response.data.error) {
         alert(response.data.error)
         return

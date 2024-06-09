@@ -26,7 +26,7 @@ function Notepad() {
 
       // Send a POST request to add a new note
       const response = await axios.post(
-        "http://localhost:3001/notes",
+        "https://videonoting.netlify.app/notes",
         { title: title, content: content, folderId: selectedFolder,folderName: savedFolder },
         { headers: { accessToken: localStorage.getItem("accessToken") } }
       )
@@ -42,7 +42,7 @@ function Notepad() {
         setIsNewFolderDisabled(false)
 
         // Fetch the updated folders list after adding a note
-        const updatedFoldersResponse = await axios.get("http://localhost:3001/folders", {
+        const updatedFoldersResponse = await axios.get("https://videonoting.netlify.app/folders", {
           headers: { accessToken: localStorage.getItem('accessToken') }
         })
         setFolders(updatedFoldersResponse.data)
@@ -56,7 +56,7 @@ function Notepad() {
   useEffect(() => {
     const fetchFolders = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/folders", {
+        const response = await axios.get("https://videonoting.netlify.app/folders", {
           headers: { accessToken: localStorage.getItem('accessToken') }
         })
         setFolders(response.data)

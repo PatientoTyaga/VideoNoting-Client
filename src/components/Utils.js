@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchProfilePhoto = (token) => {
 
   // Send a GET request to the server to fetch the profile photo
-  return axios.get("http://localhost:3001/upload-image", { headers: { accessToken: token } })
+  return axios.get("https://videonoting.netlify.app/upload-image", { headers: { accessToken: token } })
     .then((response) => {
       if (!response.data.error) {
         

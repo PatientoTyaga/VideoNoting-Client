@@ -24,7 +24,7 @@ function UserProfile() {
 
     console.log(item)
     
-    axios.post("http://localhost:3001/videos", {video : item}, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+    axios.post("https://videonoting.netlify.app/videos", {video : item}, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
 
       if(!response.data.error) {
         navigate(`/notes/${item.id.videoId}`)
@@ -41,7 +41,7 @@ function UserProfile() {
   // useEffect hook to fetch notes and search results when the component mounts
   useEffect(() => {
 
-    axios.get("http://localhost:3001/notes", {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+    axios.get("https://videonoting.netlify.app/notes", {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
       setNotes(response.data)
       console.log(response.data)
     })
