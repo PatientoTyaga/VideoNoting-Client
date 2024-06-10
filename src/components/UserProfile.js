@@ -61,12 +61,6 @@ function UserProfile() {
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Function to open the YouTube page for a video
-  const openYoutubePage = (videoId) => {
-    const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-    window.open(videoUrl, "_blank")
-  }
-
   // JSX to render the user profile page
   return (
     <div className='user-profile-page'>
@@ -113,7 +107,7 @@ function UserProfile() {
                 <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title}/>  
               </div>
               <div className='footer'>
-                <button className='youtube-btn' onClick={() => openYoutubePage(item.id.videoId)}>Go to youtube page</button>
+                <button className='youtube-btn' onClick={() => {handleClick(item)}}>Take Notes</button>
               </div>
             </div>
           )
